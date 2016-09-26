@@ -1,0 +1,80 @@
+//colors
+
+$blue: #3b7cca;
+$white: #fff;
+$purple: #270b47;
+$black: #000;
+
+$gray: #BDBDBD;
+
+
+
+//screens
+
+$susy: (
+columns: 10,  // The number of columns in your grid
+gutters: 0, // The size of a gutter in relation to a single column
+);
+
+$xs: 300px;
+$small: 480px;
+$sm: 616px;
+$medium: 768px;
+$ml: 900px;
+$burgermenu: 960px;
+$large: 1200px;
+$lxl: 1555px;
+$xl: 1800px;
+
+/* OTHERS */
+$section_padding: 40px;
+
+@mixin box-sizing($value)
+{
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+
+
+/* ROTATION */
+// breakpoints
+
+$S:     480px;
+$M:     768px;
+$L:     1170px;
+
+// media queries
+
+@mixin MQ($canvas) {
+  @if $canvas == S {
+   @media only screen and (min-width: $S) { @content; }
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $M) { @content; }
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $L) { @content; }
+  }
+}
+
+// center vertically and/or horizontally an absolute positioned element
+
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
